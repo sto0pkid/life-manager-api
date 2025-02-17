@@ -1,0 +1,23 @@
+{
+  "name": "life-management-api",
+  "version": "1.0.0",
+  "description": "Life management API",
+  "keywords": [
+    "life",
+    "management"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.0.1",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10"
+  }
+}
