@@ -1,4 +1,4 @@
-import {uuidv4 as newId} from '../../lib/uuid'
+import {v4 as newId} from 'uuid'
 import { Bill, BillData } from './types'
 
 export class Repository {
@@ -7,6 +7,7 @@ export class Repository {
     constructor(data : {[key:string] : Bill}){
         this.data = data
     }
+
     list(){
         return this.data
     }
@@ -25,12 +26,14 @@ export class Repository {
         }
         return this.data[id]
     }
+
     remove(id : string){
         if(!(id in this.data)){
             throw new Error('NOT_FOUND')
         }
         delete this.data[id]
     }
+    
     update(id : string, bill : BillData ){
         if(!(id in this.data)){
             throw new Error('NOT_FOUND')

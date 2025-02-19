@@ -9,45 +9,80 @@ export class BillsController {
     async list(req : Request, res : Response){
         try {
             const bills = this.repo.list();
-            return res.json(bills);
-        } catch (error) {
-            return res.status(500).json({ message: error.message });
+            res.json(bills);
+        } catch (error : unknown) {
+            if(error instanceof Error){
+                res.status(500).json({ message: error.message });
+            } else {
+                throw error
+            }
         }
+        return
     }
     async get(req : Request, res : Response){
         try {
+            if(typeof req.params.id === 'undefined'){
+                throw new Error('INVALID')
+            }
             const bill = this.repo.get(req.params.id)
-            return res.json(bill)
-        } catch (error) {
-            return res.status(500).json({message: error.message})
+            res.json(bill)
+        } catch (error : unknown) {
+            if(error instanceof Error ){
+                res.status(500).json({message: error.message})
+            } else {
+                throw error
+            }
+
         }
+        return
     }
     async add(req : Request, res : Response){
         try {
             const billData = req.body
             const bill = this.repo.add(billData)
-            return res.json(bill)
-        } catch (error) {
-            return res.status(500).json({message: error.message})
+            res.json(bill)
+        } catch (error : unknown) {
+            if(error instanceof Error){
+                res.status(500).json({message: error.message})
+            } else {
+                throw error
+            }
         }
+        return
     }
 
     async remove(req : Request, res : Response){
         try {
+            if(typeof req.params.id === 'undefined'){
+                throw new Error('INVALID')
+            }
             const id = req.params.id
             this.repo.remove(id)
-        } catch (error ){
-            res.status(500).json({message: error.message})
+        } catch (error : unknown ){
+            if(error instanceof Error){
+                res.status(500).json({message: error.message})
+            } else {
+                throw error
+            }
         }
+        return
     }
 
     async update(req : Request, res : Response){
         try {
+            if(typeof req.params.id === 'undefined'){
+                throw new Error('INVALID')
+            }
             const id = req.params.id
             const data = req.body
             this.repo.update(id, data)
-        } catch (error){
-            res.status(500).json({message: error.message})
+        } catch (error : unknown){
+            if(error instanceof Error){
+                res.status(500).json({message: error.message})
+            } else {
+                throw error
+            }
         }
+        return
     }
 }

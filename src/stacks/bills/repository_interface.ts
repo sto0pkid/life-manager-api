@@ -3,8 +3,8 @@ export interface BillsRepository {
     data : {[key:string] : Bill}
     constructor : Function,
     list : () => {[key:string] : Bill},
-    get: (id : string) => Bill,
-    add: (bill : BillData) => Bill,
+    get: (id : string) => Bill | undefined,
+    add: (bill : BillData) => Bill | undefined,
     remove: (id : string) => void,
     update: (id : string, bill : BillData ) => void
 }
