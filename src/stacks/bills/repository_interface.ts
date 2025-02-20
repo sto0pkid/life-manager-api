@@ -1,4 +1,4 @@
-import { Bill, BillData } from './types'
+import { Bill, BillData } from './types.js'
 export interface BillsRepository {
     data : {[key:string] : Bill}
     constructor : Function,

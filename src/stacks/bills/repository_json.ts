@@ -1,5 +1,5 @@
 import {v4 as newId} from 'uuid'
-import { Bill, BillData } from './types'
+import { Bill, BillData } from './types.js'
 
 export class Repository {
     data : {[key:string] : Bill}
@@ -33,7 +33,7 @@ export class Repository {
         }
         delete this.data[id]
     }
-    
+
     update(id : string, bill : BillData ){
         if(!(id in this.data)){
             throw new Error('NOT_FOUND')

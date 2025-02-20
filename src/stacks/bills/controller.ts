@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { BillsRepository } from './repository_interface';
+import { BillsRepository } from './repository_interface.js';
 
 export class BillsController {
     private repo : BillsRepository

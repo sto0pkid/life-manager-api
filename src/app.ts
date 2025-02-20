@@ -1,5 +1,5 @@
 import express from 'express';
-import billsRoutes from './stacks/bills/routes';
+import billsRoutes from './stacks/bills/routes.js';
 // ...import other routes...
 
 const app = express();
